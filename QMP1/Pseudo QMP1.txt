@@ -1,0 +1,31 @@
+//QMP en pseudocódigo 
+
+public class Prenda{
+    
+    public prenda(TipoPrenda tipo, Material material, Color colorPrincipal, Color colorSecundario)
+    //No sabría como validar haciendo que pueda no tener color secundario
+    
+}
+
+enum Material{
+    CUERO, ALGODON, POLIESTER
+}
+
+enum Categoria{
+    PARTE_SUPERIOR, PARTE_INFERIOR, ACCESORIO, CALZADO
+}
+
+enum TipoPrenda{
+    Categoria categoria;
+
+    TipoPrenda(categoria)
+
+    ZAPATO(Categoria.CALZADO),
+    REMERA(Categoria.PARTE_SUPERIOR),
+    MUSCULOSA(Categoria.PARTE_SUPERIOR),
+    ...
+}
+
+enum Color{
+    ROJO, VERDE, AMARILLO, AZUL,...
+}
