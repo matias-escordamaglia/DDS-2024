@@ -29,3 +29,9 @@ enum TipoPrenda{
 enum Color{
     ROJO, VERDE, AMARILLO, AZUL,...
 }
+
+https://codeshare.io/k0pYqY // Código del profe
+
+https://github.com/D-M-Gonzalez/QMP/blob/main/DiagramaDeClases.jpg //De Damian Martin Gonzalez
+
+https://codeshare.io/yNJEbv //De Tomas Nicolas Raspa
