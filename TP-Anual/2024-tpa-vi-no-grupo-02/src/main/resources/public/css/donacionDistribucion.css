@@ -1,0 +1,84 @@
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-light {
+    height: 35px;
+    width: 35px;
+    display: flex; /* Asegura la alineación de los íconos */
+    justify-content: center;
+    align-items: center;
+    background-color: #FF9225;
+    border-color: #FF9225;
+    color: #FFFFFF; /* Color del ícono */
+}
+
+.btn-light:hover {
+    background-color: #9f5714;
+    border-color: #9f5714;
+    color: #FFFFFF;
+}
+
+.btn-light:focus {
+    background-color: #FF9225;
+    border-color: #FF9225;
+    color: #FFFFFF;
+    box-shadow: 0 0 0 0.2rem rgba(255, 146, 37, 0.5); /* Efecto de foco opcional */
+}
+
+.btn-light:active {
+    background-color: #9f5714;
+    border-color: #9f5714;
+    color: #FFFFFF;
+    box-shadow: none;
+}
+
+.btn-donar {
+    background-color: #FF9225; !important;
+    border-color: #FF9225; !important;
+    color: #FFFFFF !important;            /* Color del icono blanco */
+}
+.btn-donar:hover {
+    background-color: #b86a22; !important;
+    border-color: #b86a22; !important;
+    color: #FFFFFF;
+}
+
+.btn-donar:focus {
+    background-color: #FF9225 !important;
+    border-color: #FF9225 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 146, 37, 0.5); /* Opcional: agrega un efecto de foco */
+}
+
+/* Active: Evita que se cambie a azul */
+.btn-donar:active {
+    background-color: #b86a22 !important;
+    border-color: #b86a22 !important;
+    color: #FFFFFF !important;
+    box-shadow: none !important; /* Evita sombras adicionales */
+}
+
+.form-select {
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+/*donacion heladera*/
+.direccion-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espaciado entre filas */
+}
+
+.flex-row {
+    display: flex;
+    gap: 1rem; /* Espaciado entre columnas */
+}
+
+.form-group {
+    flex: 1; /* Distribuir los elementos de manera uniforme */
+}
+
+

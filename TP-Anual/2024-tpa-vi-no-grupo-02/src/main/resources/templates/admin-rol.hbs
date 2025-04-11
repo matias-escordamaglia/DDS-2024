@@ -1,0 +1,62 @@
+{{#partial "contenido"}}
+    <div class="container-fluid login d-flex justify-content-center align-items-start vh-75">
+        <div class="container d-flex my-5 p-5 flex-column align-items-top">
+            <h2 class="login pb-5">Gestionar Rol de Administrador</h2>
+            <div class="table-responsive">
+                <form method="POST" action="/admin">
+                    <table class="table">
+                        <thead style="background-color: #5D2E2A">
+                        <tr>
+                            <th class="tablita" scope="col">ID</th>
+                            <th class="tablita" scope="col">Nombre</th>
+                            <th class="tablita" scope="col">Apellido</th>
+                            <th class="tablita" scope="col">Tipo de Documento</th>
+                            <th class="tablita" scope="col">Número de Documento</th>
+                            <th class="tablita" scope="col">Es Admin</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each colaboradores}}
+                            <tr>
+                                <th scope="row">{{this.id}}</th>
+                                <td>{{this.nombre}}</td>
+                                <td>{{this.apellido}}</td>
+                                <td>{{this.tipoDocumento}}</td>
+                                <td>{{this.numeroDocumento}}</td>
+                                <td>
+                                    <select class="form-select" name="colaborador_{{this.id}}">
+                                        <option value="true" {{#if this.esAdmin}}selected{{/if}}>Sí</option>
+                                        <option value="false" {{#unless this.esAdmin}}selected{{/unless}}>No</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+
+                    <!-- Fila de los botones de paginación con fondo marrón -->
+                    <div class="row" style="background-color: #5D2E2A; color: white;">
+                        <div class="col-md-10 text-end">
+                            {{#if anterior}}
+                                <a href="{{anterior}}" class="btn btn-dark btn-sm mt-4">←</a>
+                            {{else}}
+                                <span class="btn btn-dark btn-sm mt-4 disabled">←</span>
+                            {{/if}}
+                        </div>
+                        <div class="col-md-2 text-end">
+                            {{#if siguiente}}
+                                <a href="{{siguiente}}" class="btn btn-dark btn-sm mt-4">→</a>
+                            {{else}}
+                                <span class="btn btn-dark btn-sm mt-4 disabled">→</span>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    <button type="submit" name="action" value="asignar" class="btn btn-primary w-50 mx-auto d-block mt-4">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{{/partial}}
+
+{{> templates/layout}}

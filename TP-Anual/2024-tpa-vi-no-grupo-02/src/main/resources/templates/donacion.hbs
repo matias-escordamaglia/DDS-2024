@@ -1,0 +1,23 @@
+{{#partial "contenido"}}
+    <div class="container d-flex justify-content-center align-items-center vh-75">
+        <div class="container p-5">
+            <h2 class="text-center mb-4 login">Tipo de Donaciones</h2>
+
+            <form method="POST" action="/donacion" class="w-50 mx-auto">
+                <div class="mb-3">
+                    <label for="donacionTipo" class="form-label">Tipo de Donación</label>
+                    <select class="form-select" id="donacionTipo" name="donacionTipo" required>
+                        <option selected>Seleccionar tipo de donación</option>
+                        <option value="heladera">Donación de Heladera</option>
+                        <option value="dinero">Donación de Dinero</option>
+                        <option value="vianda">Donación de Vianda</option>
+                        <option value="distribucionViandas">Distribución de Viandas</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Aceptar</button>
+            </form>
+        </div>
+    </div>
+{{/partial}}
+
+{{> templates/layout}}

@@ -1,0 +1,89 @@
+{{#partial "contenido"}}
+    <div class="container-fluid login d-flex justify-content-center align-items-start vh-75">
+        <div class="container d-flex my-5 p-5 flex-column align-items-top">
+            {{#if mensajesError}}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorAlert">
+                    <button type="button" class="close btn btn-secondary" data-dismiss="alert" aria-label="Close" onclick="cerrarAlerta('errorAlert')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Importación Fallida</strong>
+                    <div>
+                        <h3 class="login text-center mt-4">Errores</h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" class="text-center">Error</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each mensajesError}}
+                                    <tr>
+                                        <td class="text-center">{{this}}</td>
+                                    </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+            {{#if cantidadColaboraciones}}
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
+                    <button type="button" class="close btn btn-secondary" data-dismiss="alert" aria-label="Close" onclick="cerrarAlerta('successAlert')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Se han importado {{cantidadColaboraciones}} colaboraciones</strong>
+                </div>
+            {{/if}}
+            <h2 class="login text-left">Cargar Colaboración</h2>
+            <h4 class="login text-left pb-4">Subir archivo CSV para importar colaboraciones</h4>
+
+            <div class="p-2 mb-5 d-flex flex-column flex-md-row align-items-center justify-content-between text-center" style="background-color: #D9D9D9">
+                <p class="mb-2 mb-md-0 me-md-3">Descargar plantilla para obtener un csv con los campos obligatorios</p>
+                <a href="/public/extras/colaboraciones-plantilla.csv" class="btn btn-primary">
+                    Descargar Plantilla
+                </a>
+            </div>
+            <div class="d-flex container w-100 align-items-center justify-content-center">
+                <form method="POST" action="/importacion/masiva" enctype="multipart/form-data" class="w-50">
+                    <div class="mb-3">
+                        <label for="csvFile" class="form-label login">Selecciona un archivo CSV</label>
+                        <input type="file" class="form-control text-center" id="csvFile" name="csvFile" accept=".csv"  onchange="return validarArchivo()" required>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary w-50">Cargar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para validar el archivo CSV
+        function validarArchivo() {
+            const archivoInput = document.getElementById("csvFile");
+            const archivo = archivoInput.files[0];
+            const extensionPermitida = ".csv";
+
+            if (archivo) {
+                const nombreArchivo = archivo.name;
+                if (!nombreArchivo.endsWith(extensionPermitida)) {
+                    alert('La extensión de archivo no es válida. Se permite solo .csv');
+                    archivoInput.value = "";
+                    return false;
+                }
+            }
+        }
+
+        // Función para cerrar la alerta
+        function cerrarAlerta(id) {
+            const alertElement = document.getElementById(id);
+            if (alertElement) {
+                alertElement.style.display = "none"; // Ocultar el div de la alerta
+            }
+        }
+    </script>
+{{/partial}}
+
+{{> templates/layout}}
